@@ -1,0 +1,205 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Archives";
+}
+
+
+<img src="~/images/DXC_Codes.png" height="400" width="1200" class="rounded mx-auto d-block" style="position:page" alt="DXC Logo">
+
+
+<br />
+<br />
+
+@{ int currentMonth = DateTime.Now.Day <= 26 ? DateTime.Now.Month - 1 : DateTime.Now.Month;}
+
+@{ DateTimeFormatInfo mfi = new DateTimeFormatInfo();
+    //string firstMonth = mfi.GetMonthName(currentMonth);
+    string secondMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-1).Month);
+    string thirdMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-2).Month);
+    string forthMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-3).Month);
+    string fifthMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-4).Month);
+    string sixthMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-5).Month);
+
+    string[] months = new string[] { secondMonth, thirdMonth, forthMonth, fifthMonth, sixthMonth };}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Config findings</h2>
+
+        <table class="table table-hover">
+
+            <tr style="text-align:center">
+                <th style="text-align:center;font-size:20px">
+                    Severity 5
+                </th>
+                <th style="text-align:center;font-size:20px">
+                    Severity 4
+                </th>
+            </tr>
+
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="Archive" asp-action="SeverityFiveJanuary2019">@months[0]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="SeverityFourJanuary2019">@months[0]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="Archive" asp-action="SeverityFiveDecember2018">@months[1]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="SeverityFourDecember2018">@months[1]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="Archive" asp-action="SeverityFiveNovember2018">@months[2]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="SeverityFourNovember2018">@months[2]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="SeverityFiveOctober2018">@months[3]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="SeverityFourOctober2018">@months[3]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="SeverityFiveSeptember2018">@months[4]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="SeverityFourSeptember2018">@months[4]</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <div class="col-md-4">
+        <h2>MPC Configurational</h2>
+        <table class="table table-hover">
+
+            <tr style="text-align:center">
+                <th style="text-align:center;font-size:20px">
+                    Severity 5
+                </th>
+                <th style="text-align:center;font-size:20px">
+                    Severity 4
+                </th>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFiveMpcConfigJanuary2019">@months[0]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFourMpcConfigJanuary2019">@months[0]</a>
+                </td>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFiveMpcConfigDecember2018">@months[1]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFourMpcConfigDecember2018">@months[1]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFiveMpcConfigNovember2018">@months[2]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFourMpcConfigNovember2018">@months[2]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFiveMpcConfigOctober2018">@months[3]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFourMpcConfigOctober2018">@months[3]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFiveMpcConfigSeptember2018">@months[4]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="SeverityFourMpcConfigSeptember2018">@months[4]</a>
+                </td>
+            </tr>
+            <
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <h2>MPC Mising patch</h2>
+        <table class="table table-hover">
+
+            <tr style="text-align:center">
+                <th style="text-align:center;font-size:20px">
+                    Severity 5
+                </th>
+                <th style="text-align:center;font-size:20px">
+                    Severity 4
+                </th>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFiveMpcPatchJanuary2019">@months[0]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFourMpcPatchJanuary2019">@months[0]</a>
+                </td>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFiveMpcPatchDecember2018">@months[1]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFourMpcPatchDecember2018">@months[1]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFiveMpcPatchNovember2018">@months[2]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFourMpcPatchNovember2018">@months[2]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFiveMpcPatchOctober2018">@months[3]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFourMpcPatchOctober2018">@months[3]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFiveMpcPatchSeptember2018">@months[4]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="SeverityFourMpcPatchSeptember2018">@months[4]</a>
+                </td>
+            </tr>
+           
+        </table>
+
+    </div>
+
+</div>
+
+
